@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Excel State-City Filter</title>
+
+<!-- PapaParse CDN -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<style>
+/* ===== PAGE ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    background: linear-gradient(135deg, #eef2ff, #f8fbff);
+}
+
+/* ===== HEADER ===== */
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header img {
+    max-width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.header h2 {
+    margin: 0;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+/* ===== FORM ===== */
+label {
+    font-weight: bold;
+    color: #1f2937;
+}
+
+select, input {
+    padding: 7px;
+    margin: 5px;
+    border-radius: 6px;
+    border: 1px solid #c7d2fe;
+    background: #ffffff;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.15);
+}
+
+button {
+    padding: 7px 14px;
+    margin: 5px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+th, td {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+}
+
+/* ===== TABLE HEADINGS ===== */
+th {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
+/* ===== TABLE DATA COLORS ===== */
+tbody tr:nth-child(odd) td {
+    background-color: #f8fafc;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #eef2ff;
+}
+
+/* Hover effect */
+tbody tr:hover td {
+    background-color: #dbeafe;
+    transition: background-color 0.2s ease-in-out;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== LOGO + TITLE ===== -->
+<div class="header">
+    <img src="LOGO.png.jpg" alt="Logo">
+    <h2>Brahm Vyapar Samiti - Gujarat (Inspired by Parshuram Foundation)</h2>
+</div>
+
+<label>State:</label>
+<select id="stateFilter">
+    <option value="">Select State</option>
+</select>
+
+<label>City:</label>
+<select id="cityFilter" disabled>
+    <option value="">Select City</option>
+</select>
+
+<label>Category:</label>
+<select id="categoryFilter">
+    <option value="">Select Category</option>
+</select>
+
+<button id="okBtn">OK</button>
+
+<table>
+    <thead id="tableHead"></thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
